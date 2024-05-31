@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  mywebsite:
+    image: mywebsite-image
+    ports:
+      - "8888:80"  # Change host port to 8888
+    restart: always
