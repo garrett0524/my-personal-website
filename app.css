@@ -8,8 +8,6 @@ html {
     scroll-behavior: smooth; /* Smooth scrolling behavior */
 }
 
-
-
 /* General styling for the entire body */
 body {
     zoom: 80%;
@@ -67,15 +65,29 @@ body {
 
 }
 
-/* Styling for the main heading (Nice to meet you, I'm Garrett) */
 h1 {
     font-size: 4em;
     font-weight: bold;
     letter-spacing: 2px;
-    margin: 0; /* Remove default margin */
-    max-width: 100%;
+    margin: 0; 
+    overflow: hidden; 
 
+    border-right: 0.15em solid white; 
+    white-space: nowrap; 
+    animation: typing 1.75s steps(40, end) forwards, blink-caret 0.75s step-end infinite;  
 }
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}  
+
+
 
 h2 {
     font-size: 2em;
@@ -232,40 +244,55 @@ rust {
 }
 
 .education-container{
+    display: flex;
+    align-items: center;
     max-width: 100%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 25px;
+
+
 }
 .education-shape{
     width:430px;
     height:126px;
     background:#AF9507;
-    margin: 0 auto;
     margin-top: -40px;
     border-radius: 25px; 
 }
 
+.employment-shape{
+    
+    width:430px;
+    height:126px;
+    background:#AF9507;
+    margin-top: -40px;
+    border-radius: 25px; 
+}
 
-.education-title{
+.education-title,.employment-title{
     font-family: "Outfit", sans-serif;
     font-weight: bold;
     font-size: 25px;
     color: white;
     text-align: center; /* Center align the text inside the container */
-    margin-top: -123px;
+    margin-top: 6px;
 
 
 }
 
-.degree{
+.degree,.job-title{
     font-family: "Outfit", sans-serif;
     font-size: 24px;
     color: white;
     text-align: center; 
     font-weight: normal;
-    margin-top: 3px;
+    margin-top: 6px;
 
 }
 
-.university{
+.university,.location{
     font-family: "Outfit", sans-serif;
     font-size: 17.5px;
     color: white;
@@ -399,8 +426,12 @@ rust {
     margin-top: 30px;
     border-radius: 25px; 
 
+    overflow-x: auto; /* Enable horizontal scrolling */
+
 
 }
+
+
 
 .project-shape{
     max-width: 100%;
@@ -492,6 +523,10 @@ rust {
     width:348px;
     height: 347px;
     margin-top: 20px;
+}
+
+.image3{
+    border-radius: 25px;
 }
 
  .hobbies-label{
@@ -592,6 +627,17 @@ h5{
 /* Responsive Design */
 
 @media only screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 2.5em;
+        white-space: normal;
+        overflow: visible;
+        text-align: center; /* Maintain center alignment on mobile */
+        animation: none; 
+        border-right: none;
+
+    }
+
     .ellipse1, .ellipse2, .ellipse3 {
         display: none; /* Hide ellipses on smaller screens */
     }
@@ -606,6 +652,11 @@ h5{
     }
     .logo-container{
         margin-top: -120px;
+    }
+
+    .education-container{
+
+        gap: 10px
     }
 
    .three-shapes{
